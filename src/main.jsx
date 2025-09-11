@@ -7,15 +7,18 @@ import { Provider } from 'react-redux'
 import { store } from './redux/store.js'
 import { PersistGate } from 'redux-persist/integration/react'
 import { persistor } from './redux/store.js'
+import Democontext from "./context/Democontext"; //
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Provider store={store}>
+   <Democontext>
+        <Provider store={store}>
       <PersistGate loading={<p>Loading.....</p>} persistor={persistor}>
     <BrowserRouter>
       <App />
     </BrowserRouter>
     </PersistGate>
     </Provider>
+     </Democontext>
   </StrictMode>,
 )

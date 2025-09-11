@@ -16,7 +16,6 @@ import { setExpenses } from '../redux/expenesSlice';
 
 const Navbar = () => {
 
-
   const dispatch=useDispatch();
   const [user, setuser] = useState(null)
   const location = useLocation();
@@ -64,7 +63,7 @@ const Navbar = () => {
               Expense-Tracker
             </span>
           </div>
-          {/* Navigation Links */}
+          
           <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => {
               const isActive = location.pathname === item.path;
@@ -85,7 +84,7 @@ const Navbar = () => {
                   <Icon className={`h-4 w-4 transition-transform duration-300 ${isActive ? 'scale-110' : 'group-hover:scale-105'}`} />
                   <span className="text-sm">{item.label}</span>
 
-                  {/* Hover glow effect */}
+                  
                   {!isActive && (
                     <div className="absolute inset-0 bg-primary/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   )}
@@ -106,7 +105,7 @@ const Navbar = () => {
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
+          
           <div className="md:hidden">
             <button className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent/50 transition-colors">
               <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -117,7 +116,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation (hidden by default) */}
       <div className="md:hidden bg-card/95 backdrop-blur-sm border-t border-border/50">
         <div className="px-4 py-3 space-y-1">
           {navItems.map((item) => {
@@ -146,6 +144,4 @@ const Navbar = () => {
     </nav>
   );
 };
-
-
 export default Navbar

@@ -15,6 +15,7 @@ const Dashboard = () => {
           <h3 className="text-lg font-bold text-blue-600 mb-4 border-b-2 border-blue-100 w-full text-center tracking-wide">Spending Distribution</h3>
           <SpendingPieChart expenses={expenses} />
         </div>
+        
 
         <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
           <h3 className="text-lg font-bold text-green-600 mb-4 border-b-2 border-green-100 w-full text-center tracking-wide">Monthly Breakdown</h3>
