@@ -18,6 +18,7 @@ const Democontext=(props)=>{
             })
         },5000)
     }
+    
     return(
         <div>
            <notecontext.Provider value={{value,update}}>
