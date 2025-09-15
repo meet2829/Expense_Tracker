@@ -96,8 +96,7 @@ const ExpensesList = () => {
               Total: ₹{totalAmount.toLocaleString()}
             </p>
           </div>
-        </div>
-
+        </div>  
         {/* Expense List */}
         <div className="space-y-3">
           {expense.length === 0 ? (

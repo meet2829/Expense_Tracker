@@ -21,6 +21,7 @@ const ExpenseLineChart = ({ expenses }) => {
       month: "short",
     });
 
+
     const existing = acc.find((item) => item.date === date);
     if (existing) {
       existing.amount += Number(expense.amount);
@@ -30,7 +31,6 @@ const ExpenseLineChart = ({ expenses }) => {
     return acc;
   }, []);
 
-  // Sort data by date for proper rendering
       dailyData.sort((a, b) =>
     new Date(a.date.split(" ").reverse().join(" ")) -
     new Date(b.date.split(" ").reverse().join(" "))
@@ -59,9 +59,7 @@ const ExpenseLineChart = ({ expenses }) => {
             />
           </LineChart>
         </ResponsiveContainer>
-      
     </div>
   );
 };
-
 export default ExpenseLineChart;

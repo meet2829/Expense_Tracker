@@ -10,15 +10,14 @@ import { persistor } from './redux/store.js'
 import Democontext from "./context/Democontext"; //
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-   <Democontext>
-        <Provider store={store}>
+
+  <Democontext>
+    <Provider store={store}>
       <PersistGate loading={<p>Loading.....</p>} persistor={persistor}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-    </PersistGate>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </PersistGate>
     </Provider>
-     </Democontext>
-  </StrictMode>,
+  </Democontext>
 )

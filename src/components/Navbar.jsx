@@ -35,6 +35,7 @@ const Navbar = () => {
     { path: "/register", label: "Register", icon: UserPlus },
   ];
 
+
   const HandleLogOut= async()=>{
 
     try {
@@ -53,7 +54,7 @@ const Navbar = () => {
     <nav className=" top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm border-b border-border/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+         
           <div className="flex items-center gap-2">
             <div className="relative">
               <TrendingUp className="h-8 w-8 text-primary animate-glow-pulse" />
@@ -91,7 +92,6 @@ const Navbar = () => {
                 </Link>
               );
             })}
-
             {user ? (
               <div className="flex items-center gap-2 text-sm text-gray-600">
                 <span>Hello, {user.displayName || user.email.split('@')[0]}</span>
@@ -105,7 +105,6 @@ const Navbar = () => {
             </button>
           </div>
 
-          
           <div className="md:hidden">
             <button className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent/50 transition-colors">
               <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

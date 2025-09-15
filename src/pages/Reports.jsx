@@ -1,36 +1,39 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useMemo, useState } from 'react'
 import notecontext from '../context/notecontext'
+
 
 const Reports = () => {
 
-  const [count,setcount]=useState(0)
+  function heavyComputation(n) {
+    console.log("heavyComputation running for", n);
+    let result = 0;
+    for (let i = 0; i < 200_000_000; i++) { result += i % (n + 1); }
+    return result;
+  }
 
-const user=useContext(notecontext)
-  useEffect(()=>{
-      user.update()
-  },[])
+  const [number, setNumber] = useState(10);
+  const [show, setShow] = useState(false);
 
-  
+  const computed = useMemo(() => heavyComputation(number), [number]);
+
+  console.log("Parent rendered");
+
+  const user = useContext(notecontext)
+  useEffect(() => {
+    user.update()
+  }, [])
+
   return (
     <div>
-    <h1>hi , i am a {user.value.name} and i work as a {user.value.designation}</h1>
-
-    <h1>Counter:{count}</h1>
-    <div >
-    <button onClick={()=>setcount(count+1)} className='m-5 p-5 bg-amber-400'>ince</button>
-    <button onClick={()=>setcount(count-1)} className='m-5 p-5 bg-amber-400'>desc</button>
-    <button onClick={()=>setcount(0)} className='m-5 p-5 bg-amber-400'>reset</button>
+      <h1>hi , i am a {user.value.name} and i work as a {user.value.designation}</h1>
+      <h2>useMemo example</h2>
+      <div>Number: {number}</div>
+      <div>Computed result: {computed}</div>
+      <button onClick={() => setNumber(n => n + 1)}>Increase number</button>
+      <button onClick={() => setShow(s => !s)}>
+        Toggle unrelated UI (show: {String(show)})
+      </button>
     </div>
-
-    <h1>Counter 2:{count}</h1>
-    <div >
-    <button onClick={()=>setcount(count+1)} className='m-5 p-5 bg-amber-400'>ince</button>
-    <button onClick={()=>setcount(count-1)} className='m-5 p-5 bg-amber-400'>desc</button>
-    <button onClick={()=>setcount(0)} className='m-5 p-5 bg-amber-400'>reset</button>
-    </div>
-    </div>
-    
   )
 }
-
 export default Reports
