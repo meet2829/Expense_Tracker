@@ -3,9 +3,15 @@ import AddExpenseForm from '../components/AddExpenseForm'
 import ExpensesList from '../components/ExpensesList'
 
 
+import SpendingPieChart from "../components/SpendingPieChart";
+import MonthlyBarChart from "../components/MonthlyBarChart";
+import ExpenseLineChart from "../components/ExpenseLineChart";
+import CategoryBarChart from "../components/CategoryBarChart";
 
 
-const Expenses = (expenses) => {
+
+
+const Expenses = () => {
 
  
   return (
@@ -26,6 +32,8 @@ const Expenses = (expenses) => {
       </div>
     </div>
   </div>
+
+  
 </div>
   )
 }

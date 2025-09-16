@@ -1,5 +1,4 @@
-import { useState,useEffect } from "react";
-import React from "react";
+
 import {
     BarChart,
     Bar,
@@ -9,6 +8,7 @@ import {
     Tooltip,
     ResponsiveContainer,
     Legend,
+    Cell
 } from "recharts";
 
 
@@ -33,7 +33,7 @@ const CategoryBarChart = ({ expenses }) => {
             </h2>
            
                 <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+                    <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 35 }}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="name" />
                         <YAxis />
@@ -41,7 +41,7 @@ const CategoryBarChart = ({ expenses }) => {
                         <Legend />
                         <Bar dataKey="value" fill="#8884d8">
                             {data.map((_, index) => (
-                                <cell key={index} fill={Colors[index % Colors.length]} />
+                                <Cell key={index} fill={Colors[index % Colors.length]} />
                             ))}
                         </Bar>
                     </BarChart>

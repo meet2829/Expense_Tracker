@@ -31,7 +31,7 @@ const ExpenseLineChart = ({ expenses }) => {
     return acc;
   }, []);
 
-      dailyData.sort((a, b) =>
+    dailyData.sort((a, b) =>
     new Date(a.date.split(" ").reverse().join(" ")) -
     new Date(b.date.split(" ").reverse().join(" "))
   );
@@ -44,7 +44,7 @@ const ExpenseLineChart = ({ expenses }) => {
       <h2 className="text-xl font-semibold text-center mb-4 text-foreground">Daily Expense Trend</h2>
       
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={dailyData} margin={{ top: 10, right: 30, left: 0, bottom: 5 }}>
+          <LineChart data={dailyData} margin={{ top: 10, right: 30, left: 0, bottom: 35 }}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="date" />
             <YAxis />
@@ -52,10 +52,10 @@ const ExpenseLineChart = ({ expenses }) => {
             <Line
               type="monotone"
               dataKey="amount"
-              stroke="#82ca9d"
+              stroke="#82ca9c"
               strokeWidth={2}
               dot={{ r: 4 }}
-              activeDot={{ r: 6 }}
+              activeDot={{ r: 10 }}
             />
           </LineChart>
         </ResponsiveContainer>
